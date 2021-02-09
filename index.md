@@ -6,10 +6,10 @@ country: "nl"      # lowercase two-letter ISO country code such as "fr" (see htt
 language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 latitude: "52"     # decimal latitude of workshop venue (use https://www.latlong.net/)
 longitude: "4"    # decimal longitude of the workshop venue (use https://www.latlong.net)
-humandate: "TBD March 2021"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
+humandate: "XX March 2020"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
 humantime: ""    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
-startdate: 2021-03-XX      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
-enddate: 2021-03-XX        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
+startdate: 2020-03-XX      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
+enddate: 2020-03-XX        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
 instructor: ["Stacy Shinneman", "Johannes De Groeve"] # boxed
 helper: ["XXXXX", "XXXXX", "XXXXX"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 email: ["s.shinneman@uva.nl"]    # boxed, comma-separated list of contact email addresses for the host
@@ -102,8 +102,32 @@ workshop is only open to people from a particular institution.
 {% comment %}
 LOCATION
 
+This block displays the address and links to maps showing directions
+if the latitude and longitude of the workshop have been set.  You
+can use https://itouchmap.com/latlong.html to find the lat/long of an
+address.
+{% endcomment %}
+{% if page.latitude and page.longitude %}
+<p id="where">
+  <strong>Where:</strong>
+  {{page.address}}.
+  Get directions with
+  <a href="//www.openstreetmap.org/?mlat={{page.latitude}}&mlon={{page.longitude}}&zoom=16">OpenStreetMap</a>
+  or
+  <a href="//maps.google.com/maps?q={{page.latitude}},{{page.longitude}}">Google Maps</a>.
+</p>
+{% endif %}
+
 <p id="rooms">
-  <strong>Online:</strong> This course will be held online in Zoom or Discord. 
+  <strong>Rooms:</strong> This course has been assigned to multiple rooms
+</p>
+<ul>
+	<li>Thursday 9:30-12:30 & 13:30-17:00:  Room D1.112</li>
+	<li>Friday 9:30-12:00:  Room A1.04</li>
+  <li>Friday 13:00-17:00:  Room B0.203</li>
+</ul>
+<p id="includes">
+  <strong>Included:</strong> Coffee and tea will be included; Lunch is <u>not</u> included.
 </p>
 
 {% comment %}
@@ -128,9 +152,18 @@ special instructions.
 <p id="accessibility">
   <strong>Accessibility:</strong> We are committed to making this workshop
   accessible to everybody.
+  The workshop organizers have checked that:
+</p>
+<ul>
+  <li>The room is wheelchair / scooter accessible.</li>
+  <li>Accessible restrooms are available.</li>
 </ul>
-<p>If we can help making learning easier for
-  you please get in touch (using contact details below) and we will
+<p>
+  Materials will be provided in advance of the workshop and
+  large-print handouts are available if needed by notifying the
+  organizers in advance.  If we can help making learning easier for
+  you (e.g. sign-language interpreters, lactation facilities) please
+  get in touch (using contact details below) and we will
   attempt to provide them.
 </p>
 
